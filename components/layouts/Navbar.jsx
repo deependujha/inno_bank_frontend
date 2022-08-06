@@ -114,7 +114,7 @@ const Navbar = ({
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link href="/">
-          <a className="navbar-brand">D-shop</a>
+          <a className="navbar-brand">Inno Bank</a>
         </Link>
         <button
           className="navbar-toggler"
@@ -158,34 +158,49 @@ const Navbar = ({
                 </a>
               </li>
             </Link>
-            <Link href="/myOrder">
+            <Link href="/requests">
               <li className="nav-item">
                 <a
-                  className={`nav-link ${current == "order" ? "active" : ""} ${
+                  className={`nav-link ${current == "requests" ? "active" : ""} ${
                     style.myLink
                   }`}
                   onClick={() => {
-                    navBtnClick("order");
+                    navBtnClick("requests");
                   }}
                 >
-                  My orders
+                  Requests
                 </a>
               </li>
             </Link>
-            <Link href="/myAccount">
+            <Link href="/make_request">
               <li className="nav-item">
                 <a
-                  className={`nav-link ${
-                    current == "account" ? "active" : ""
-                  } ${style.myLink}`}
+                  className={`nav-link ${current == "make_request" ? "active" : ""} ${
+                    style.myLink
+                  }`}
                   onClick={() => {
-                    navBtnClick("account");
+                    navBtnClick("make_request");
                   }}
                 >
-                  {logInStatus ? `My account` : `Create account`}
+                  Make a Request
                 </a>
               </li>
             </Link>
+            <Link href="/donate">
+              <li className="nav-item">
+                <a
+                  className={`nav-link ${current == "donate" ? "active" : ""} ${
+                    style.myLink
+                  }`}
+                  onClick={() => {
+                    navBtnClick("donate");
+                  }}
+                >
+                  Donate
+                </a>
+              </li>
+            </Link>
+           
           </ul>
           <span className="mx-3">
             <h5>{userName}</h5>
