@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ethers } from "ethers";
-import style from "../../styles/Navbar.module.css";
+import style from "../../styles/Layouts.module.css";
 import { useRouter } from "next/router";
 import ABI from "/abi";
 import axios from "axios";
@@ -111,7 +111,9 @@ const Navbar = ({
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top ${style.fixTop}`}
+    >
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">Inno Bank</a>
@@ -161,9 +163,9 @@ const Navbar = ({
             <Link href="/requests">
               <li className="nav-item">
                 <a
-                  className={`nav-link ${current == "requests" ? "active" : ""} ${
-                    style.myLink
-                  }`}
+                  className={`nav-link ${
+                    current == "requests" ? "active" : ""
+                  } ${style.myLink}`}
                   onClick={() => {
                     navBtnClick("requests");
                   }}
@@ -175,9 +177,9 @@ const Navbar = ({
             <Link href="/make_request">
               <li className="nav-item">
                 <a
-                  className={`nav-link ${current == "make_request" ? "active" : ""} ${
-                    style.myLink
-                  }`}
+                  className={`nav-link ${
+                    current == "make_request" ? "active" : ""
+                  } ${style.myLink}`}
                   onClick={() => {
                     navBtnClick("make_request");
                   }}
@@ -200,7 +202,6 @@ const Navbar = ({
                 </a>
               </li>
             </Link>
-           
           </ul>
           <span className="mx-3">
             <h5>{userName}</h5>
