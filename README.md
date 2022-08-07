@@ -2,8 +2,9 @@
 
 # Inno Bank (a DAO project)
 
-##(A non-profit bank for innovators and problem-solvers)
+## (A non-profit bank for innovators and problem-solvers)
 This project was made for **'Web3Hack'** a hackathon organized by **['CryptoNaukri'](https://www.cryptonaukri.com/)**. Our team, **"Wild Rose"**, a team of two undergrads, [Deependu Jha](https://github.com/deependujha), and [Nitesh Kumar](https://github.com/niteshKrr) took part in this hackathon and did our best to complete this project in even less than 2 days.
+<br/>
 <br/>
 Our project is about the **lack of funds one has when trying to start a venture/ solving a problem**. So, DAO comes to rescue. Inno Bank is a non-profit bank for innovators and problem-solvers.
 <br/>
@@ -82,6 +83,7 @@ problems, here's the **'Decentralised Autonomous Organization (DAO)'**
 ## See code of smart-contract & backend:
 
 [smart-contract](https://github.com/deependujha/inno_bank_smart_contract)
+<br/>
 [backend](https://github.com/deependujha/inno_bank_backend)
 
 #### Thanks.
