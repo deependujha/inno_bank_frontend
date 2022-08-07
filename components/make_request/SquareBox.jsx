@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../styles/SquareBox.module.css";
-import StayAnonymous from "../donate/StayAnonymous";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { ethers } from "ethers";
+import axios from "axios";
 
 const SquareBox = ({ idea, setIdea, amount, setAmount, myContract }) => {
   function getRandomInt(min, max) {
@@ -27,7 +27,18 @@ const SquareBox = ({ idea, setIdea, amount, setAmount, myContract }) => {
           return tx
             .wait()
             .then((reqId) => {
-              alert(`Your request has been successfully submitted.`);
+              axios
+                .post(`http://127.0.0.1:3000/requests/`, {
+                  funds: amount,
+                  idea: idea,
+                  reqId: val,
+                })
+                .then(() => {
+                  alert(`Your request has been successfully submitted.`);
+                })
+                .catch((e) => {
+                  alert(`an error occurred: ${e}`);
+                });
             })
             .catch((err) =>
               alert(`Error occurred while requesting: ${err.message}`)
@@ -39,8 +50,8 @@ const SquareBox = ({ idea, setIdea, amount, setAmount, myContract }) => {
     } catch (e) {
       alert(`Error occurred: ${e}`);
     }
-    console.log(`amount is: ${amount}`);
-    console.log(`idea is: ${idea}`);
+    // console.log(`amount is: ${amount}`);
+    // console.log(`idea is: ${idea}`);
   };
 
   return (
