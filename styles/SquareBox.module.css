@@ -1,0 +1,7 @@
+.squareBox {
+    border: 2px solid black;
+    background-color: #054b15;
+    height: 400px;
+    width: 500px;
+    border-radius: 10px;
+}
