@@ -12,21 +12,15 @@ const fetcher = async (addr) => {
 };
 
 const Navbar = ({
-  usrAddr,
   setUsrAddr,
   setMyContract,
-  logInStatus,
-  setLogInStatus,
-  userName,
-  setUserName,
-  usrDetails,
-  setUsrDetails,
+  con,
+  setCon,
   current,
   setCurrent,
 }) => {
   const router = useRouter();
 
-  const [con, setCon] = useState(false);
   // useEffect(() => {
   //   if (usrAddr != "") {
   //     axios
@@ -78,7 +72,7 @@ const Navbar = ({
           // provider can perform read only transactions
           // signer can perform all kind of transactions
           let contract = new ethers.Contract(
-            "0x20bD9e821e257340F5E37bCD817184feb6EB1A34",
+            "0x8107B23AF117604fA015c377e6C6Ae72e3B5de27",
             ABI,
             signer
           );
@@ -88,20 +82,21 @@ const Navbar = ({
           let usrAddress = await signer.getAddress();
           // console.log(usrAddress);
           setUsrAddr(usrAddress);
+          console.log(usrAddress);
+          console.log(contract);
+          setCon(true);
         }
       } catch (e) {
         alert(`an error occurred: ${e}`);
       }
     }
   };
+
   const btnClick = async () => {
     if (con) {
       setMyContract("");
       setUsrAddr("");
-      setUsrDetails({});
       setCon(false);
-      setUserName("");
-      setLogInStatus(false);
     } else {
       connectWithMetaMask();
     }
@@ -204,12 +199,9 @@ const Navbar = ({
               </li>
             </Link>
           </ul>
-          <span className="mx-3">
-            <h5>{userName}</h5>
-          </span>
           <button
             className={`btn ${con ? `btn-danger` : `btn-info`}`}
-            // onClick={btnClick}
+            onClick={btnClick}
           >
             {con ? `logout` : `Connect with metamask`}
           </button>
