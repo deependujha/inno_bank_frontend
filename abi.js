@@ -105,6 +105,11 @@ const ABI = [
         name: "funds",
         type: "uint256",
       },
+      {
+        internalType: "uint256",
+        name: "reqId",
+        type: "uint256",
+      },
     ],
     name: "makeRequest",
     outputs: [

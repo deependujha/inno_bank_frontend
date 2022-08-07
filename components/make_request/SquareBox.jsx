@@ -6,16 +6,28 @@ import Form from "react-bootstrap/Form";
 import { ethers } from "ethers";
 
 const SquareBox = ({ idea, setIdea, amount, setAmount, myContract }) => {
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   const btnClicked = () => {
+    if (myContract === "") {
+      alert("Please connect with metamask");
+      return;
+    }
     try {
+      const val = getRandomInt(100000, 999999);
+      console.log(val);
       myContract
-        .makeRequest(idea, amount)
+        .makeRequest(idea, amount, val)
         .then((tx) => {
           console.log("transaction occured : ", tx.hash);
           return tx
             .wait()
-            .then(() => {
-              alert("Your request has been successfully submitted.");
+            .then((reqId) => {
+              alert(`Your request has been successfully submitted.`);
             })
             .catch((err) =>
               alert(`Error occurred while requesting: ${err.message}`)

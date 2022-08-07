@@ -72,7 +72,7 @@ const Navbar = ({
           // provider can perform read only transactions
           // signer can perform all kind of transactions
           let contract = new ethers.Contract(
-            "0x8107B23AF117604fA015c377e6C6Ae72e3B5de27",
+            "0x4bB7E8dDb2384a371027F13b4D6d34d8b1174Af5",
             ABI,
             signer
           );

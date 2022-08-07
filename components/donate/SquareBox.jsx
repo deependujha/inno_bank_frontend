@@ -116,7 +116,7 @@ const SquareBox = ({ clicked, myContract }) => {
         <div className="mb-4" style={{ color: "white" }}>
           {clicked === "donate"
             ? "Enter amount in ethers"
-            : "Send atleast 5 ethers to become a member."}
+            : "Send atleast 0.1 ethers to become a member."}
         </div>
         <StayAnonymous clicked={clicked} val={val} setVal={setVal} />
         <button
