@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
         con={con}
         setCon={setCon}
       />
-      <Component {...pageProps} setCurrent={setCurrent} />
+      <Component {...pageProps} setCurrent={setCurrent} myContract={myContract} />
       {/* <Footer /> */}
     </div>
   );
