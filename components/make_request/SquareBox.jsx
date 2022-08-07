@@ -3,11 +3,32 @@ import styles from "../../styles/SquareBox.module.css";
 import StayAnonymous from "../donate/StayAnonymous";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
+import { ethers } from "ethers";
 
-const SquareBox = ({ idea, setIdea, amount, setAmount }) => {
+const SquareBox = ({ idea, setIdea, amount, setAmount, myContract }) => {
   const btnClicked = () => {
-    // console.log(`amount is: ${amount}`);
-    // console.log(`idea is: ${idea}`);
+    try {
+      myContract
+        .makeRequest(idea, amount)
+        .then((tx) => {
+          console.log("transaction occured : ", tx.hash);
+          return tx
+            .wait()
+            .then(() => {
+              alert("Your request has been successfully submitted.");
+            })
+            .catch((err) =>
+              alert(`Error occurred while requesting: ${err.message}`)
+            );
+        })
+        .catch((err) => {
+          alert(`Insufficient funds: ${err}`);
+        });
+    } catch (e) {
+      alert(`Error occurred: ${e}`);
+    }
+    console.log(`amount is: ${amount}`);
+    console.log(`idea is: ${idea}`);
   };
 
   return (
