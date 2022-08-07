@@ -53,7 +53,7 @@ const about = ({ setCurrent }) => {
               <div className="col-sm">
                 <ul>
                   <li>
-                    Since bank is a non-profit Organization. So, only way for
+                    Since our bank is a non-profit Organization. So, only way for
                     bank to have money is through donations.
                   </li>
                   <li>
