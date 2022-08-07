@@ -3,8 +3,12 @@ import styles from "../styles/Home.module.css";
 import Mycarousel from "../components/home/Mycarousel";
 import Link from "next/link";
 import SomeContents from "../components/home/SomeContents";
+import React, { useEffect } from "react";
 
-export default function Home() {
+export default function Home({ setCurrent }) {
+  useEffect(() => {
+    setCurrent("home");
+  }, []);
   return (
     <div className={styles.container}>
       <Mycarousel />

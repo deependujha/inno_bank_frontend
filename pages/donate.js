@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const donate = () => {
+const donate = ({ setCurrent }) => {
+  useEffect(() => {
+    setCurrent("donate");
+  }, []);
   return (
     <div>donate</div>
   )

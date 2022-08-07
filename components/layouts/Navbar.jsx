@@ -21,10 +21,11 @@ const Navbar = ({
   setUserName,
   usrDetails,
   setUsrDetails,
+  current,
+  setCurrent,
 }) => {
   const router = useRouter();
 
-  const [current, setCurrent] = useState("home");
   const [con, setCon] = useState(false);
   // useEffect(() => {
   //   if (usrAddr != "") {

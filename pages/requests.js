@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const requests = () => {
+const requests = ({ setCurrent }) => {
+  useEffect(() => {
+    setCurrent("requests");
+  }, []);
   return (
     <div>requests</div>
   )
